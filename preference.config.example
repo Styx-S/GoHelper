@@ -5,3 +5,4 @@ email={your email}
 appId={your qcloud app-id}
 secretId={your qcloud secret-id}
 secretKey={your qcloud secret-key}
+bucket={your qcloud bucket url}

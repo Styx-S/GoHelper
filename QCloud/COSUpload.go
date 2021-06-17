@@ -7,8 +7,8 @@ import (
 	"net/url"
 )
 
-func UploadObject(client *Client, filePath string) {
-	u, _ := url.Parse("https://conf-pic-1252384928.cos.ap-guangzhou.myqcloud.com")
+func UploadObject(client *Client,bucketPath string, keyName string, filePath string) {
+	u, _ := url.Parse(bucketPath)
 	b := &cos.BaseURL{BucketURL: u}
 	c := cos.NewClient(b, &http.Client{
 		Transport: &cos.AuthorizationTransport{
@@ -18,7 +18,6 @@ func UploadObject(client *Client, filePath string) {
 	})
 	// 对象键（Key）是对象在存储桶中的唯一标识。
 	// 例如，在对象的访问域名 `examplebucket-1250000000.cos.COS_REGION.myqcloud.com/test/objectPut.go` 中，对象键为 test/objectPut.go
-	name := "test/test.png"
 	//// 1.通过字符串上传对象
 	//f := strings.NewReader("test")
 	//
@@ -27,7 +26,7 @@ func UploadObject(client *Client, filePath string) {
 	//	panic(err)
 	//}
 	// 2.通过本地文件上传对象
-	_, err := c.Object.PutFromFile(context.Background(), name, filePath, nil)
+	_, err := c.Object.PutFromFile(context.Background(), keyName, filePath, nil)
 	if err != nil {
 		panic(err)
 	}
