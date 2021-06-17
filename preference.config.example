@@ -1,0 +1,7 @@
+[common]
+name={your name}
+email={your email}
+[QCloud]
+appId={your qcloud app-id}
+secretId={your qcloud secret-id}
+secretKey={your qcloud secret-key}
